@@ -60,12 +60,12 @@ function App() {
     console.log('checked', checked)
     const updatedTasks = tasks.map(task => {
       if(task.id === id) {
-        task.completed = checked;
+        task.completed = !task.completed;
       }
       return task;
     })
 
-    // setTasks(updatedTasks);
+    setTasks(updatedTasks);
   }
 
 const incompleteTasks = tasks.filter((task) => !task.completed)

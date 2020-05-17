@@ -23,7 +23,7 @@ function Task(props){
         {props.completed === false ? <h1 className="todo-line">{props.text}</h1> : <h1 className="todo-line"><strike>{props.text}</strike></h1>}
         
         <Checkbox 
-        checked={checked}
+        checked={props.completed}
         onChange={handleChecked}
         color="primary"
         />
