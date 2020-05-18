@@ -1,4 +1,50 @@
-/* .todo-line {
-    border-color: #282c34;
-    border-bottom-style: dotted;
+.clock {
+    height: 30px;
+    margin-top: 28px;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+.clock:hover {
+    height: 40px;
+    margin-top: 22px;
+    margin-right: 5px;
+    margin-left: 10px;
+    animation-name: ring;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+}
+
+@keyframes ring {
+    0% { transform:  rotate(0deg); }
+    10% { transform: rotate(-5deg); }
+    20% { transform: rotate(5deg); }
+    30% { transform: rotate(0deg); }
+    40% { transform:  rotate(-5deg); }
+    50% { transform:  rotate(5deg); }
+    60% { transform:  rotate(0deg); }
+    70% { transform:  rotate(-5deg); }
+    80% { transform: rotate(5deg); }
+    90% { transform:  rotate(0deg); }
+    100% { transform: rotate(-5deg); }
+}
+
+  /* Use this for if task is due! */
+/* 
+  @keyframes pulse {
+	0% {
+		transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(240,145,99);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
 } */

@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import useStyles from './add-todo.styles';
-import clock from '../assets/clock.png';
-
 
 function AddTodo(props) {
     const classes = useStyles();
     const [ taskText, setTaskText ] = useState(" ");
-    // const [clockHover, setClockHover] = useState('50px') 
+ 
 
     const handleChange = (event) => {
         setTaskText(event.target.value)
