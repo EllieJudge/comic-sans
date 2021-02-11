@@ -28,9 +28,9 @@ function Task(props) {
     const [startDate, setStartDate] = useState(new Date());
 
     const handleClockClick = () => {
-        setTime( <DatePicker selected={startDate} onChange={date => setStartDate(date)} />) // conditional rendering (in return show date picker)
+        setTime(<DatePicker selected={startDate} onChange={date => setStartDate(date)} />) // conditional rendering (in return show date picker)
     }
-    
+
     const checkBoxStyles = theme => ({
         root: {
             '&$checked': {
@@ -39,37 +39,31 @@ function Task(props) {
         },
         checked: {},
     })
-    
+
     const [time, setTime] = useState(<img src={Clock} className="clock" alt="clockImage" onClick={handleClockClick} />)
     const CustomCheckbox = withStyles(checkBoxStyles)(Checkbox);
-    
+
     return (
         <>
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ display: "flex", justifyContent: "center", border: '2px solid #282c34', backgroundColor: 'white', minWidth: '99vh', marginBottom: '50px' }}>
 
-                {props.completed === false ? <h1 className="todo-line">{props.text}</h1> :
+                {props.completed === false ? <h1 >{props.text}</h1> :
                     <span style={{ color: 'rgb(237,117,140)', textDecoration: 'line-through' }}><span style={{ color: 'black' }}><h1>{props.text}</h1></span></span>}
-
-                <div>
                 {time}
-                        
-
                 <CustomCheckbox
                     checked={props.completed}
                     onChange={handleChecked}
-                    />
-
+                />
                 <CloseIcon
                     onClick={handleDelete}
                     onMouseEnter={handleMouseEnterCloseIcon}
                     onMouseLeave={handleMouseLeaveCloseIcon}
                     color="secondary"
-                    fontSize={closeIconSize}
+                    weigh={closeIconSize}
                     style={{ height: "40px", marginTop: "24px" }}
-                    />
-
-                {/* <DatePicker selected={startDate} onChange={date => setStartDate(date)} /> */}
-                    </div>
+                />
+                <div>
+                </div>
             </div>
         </>
     )

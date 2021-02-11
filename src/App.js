@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import Header from './components/header/header';
 import AddTodo from './components/add-todo/add-todo';
@@ -54,10 +53,9 @@ function App() {
     },])
   }
 
-
   function completeTask(id, checked) {
     const updatedTasks = tasks.map(task => {
-      if(task.id === id) {
+      if (task.id === id) {
         task.completed = !task.completed;
       }
       return task;
@@ -65,23 +63,28 @@ function App() {
     setTasks(updatedTasks);
   }
 
-const incompleteTasks = tasks.filter((task) => !task.completed);
+  const incompleteTasks = tasks.filter((task) => !task.completed);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <TaskCountBubble count={incompleteTasks.length} />
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <Header title={"Todo-do da do!"} />
-        <AddTodo text={"Add a todo: "} addTaskFunc={addTask} />
-        <Heart />
-      </header>
-      <main>
-        {tasks.map((task) => {
-          return <Task text={task.task} key={uuidv4()} id={task.id} completed={task.completed} deleteTaskFunc={deleteTask} completeTaskFunc={completeTask} />
-        })}
-      </main>
-    </div>
+    <>
+      <div className="App">
+        <header className="App-header">
+          <TaskCountBubble count={incompleteTasks.length} />
+          <Header title={"Todo-do da do!"} />
+          <AddTodo text={"Add a todo: "} addTaskFunc={addTask} />
+          <Heart />
+        </header>
+        <main>
+          {tasks.map((task) => {
+            return <Task text={task.task}
+              key={uuidv4()} id={task.id}
+              completed={task.completed}
+              deleteTaskFunc={deleteTask}
+              completeTaskFunc={completeTask} />
+          })}
+        </main>
+      </div>
+    </>
   );
 }
 
